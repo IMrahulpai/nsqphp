@@ -118,9 +118,9 @@ class ConnectionPool implements \Iterator, \Countable
     /**
      * Get count of items
      *
-     * @return integer
+     * @return int
      */
-    public function count()
+    public function count(): int
     {
         return count($this->connections);
     }
