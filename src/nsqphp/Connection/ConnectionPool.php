@@ -64,9 +64,9 @@ class ConnectionPool implements \Iterator, \Countable
     /**
      * Get key of current item as string
      *
-     * @return string
+     * @return mixed
      */
-    public function key()
+    public function key(): mixed
     {
         return key($this->connections);
     }
@@ -74,9 +74,9 @@ class ConnectionPool implements \Iterator, \Countable
     /**
      * Test if current item valid
      *
-     * @return boolean
+     * @return bool
      */
-    public function valid()
+    public function valid(): bool
     {
         return (current($this->connections) === FALSE) ? FALSE : TRUE;
     }
@@ -86,23 +86,27 @@ class ConnectionPool implements \Iterator, \Countable
      *
      * @return mixed
      */
-    public function current()
+    public function current(): mixed
     {
         return current($this->connections);
     }
 
     /**
      * Go to next item
+     * 
+     * @return void
      */
-    public function next()
+    public function next(): void
     {
         next($this->connections);
     }
 
     /**
      * Rewind to start
+     * 
+     * @return void
      */
-    public function rewind()
+    public function rewind(): void
     {
         reset($this->connections);
     }
