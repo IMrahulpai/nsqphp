@@ -172,7 +172,10 @@ class Connection implements ConnectionInterface
      */
     public function reconnect()
     {
-        @fclose($this->socket);
+        if (!empty($this->socket)) {
+            @fclose($this->socket);
+        }
+
         $this->socket = NULL;
         return $this->getSocket();
     }
